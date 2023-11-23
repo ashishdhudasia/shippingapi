@@ -1,0 +1,14 @@
+# ShippingLabelUpdateCredentials
+
+## Properties
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**user_name** | **string** |  | [optional] 
+**password** | **string** |  | [optional] 
+**account_number** | **string** |  | [optional] 
+**access_key** | **string** |  | [optional] 
+**webhook_url** | **string** |  | [optional] 
+**hs_provider** | **string** |  | [optional] 
+
+[[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
+
