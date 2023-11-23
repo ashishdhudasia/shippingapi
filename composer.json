@@ -1,5 +1,5 @@
 {
-    "name": "ashishdhudasia/shippingAPI",
+    "name": "ashishdhudasia/shippingapi",
     "description": "",
     "keywords": [
         "swagger",
@@ -22,8 +22,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^7.3",
-        "guzzlehttp/psr7": "^1.7 || ^2.0",
-        "ashishdhudasia/shippingAPI": "*@dev"
+        "guzzlehttp/psr7": "^1.7 || ^2.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^8.0 || ^9.0",
@@ -34,11 +33,5 @@
     },
     "autoload-dev": {
         "psr-4": { "Swagger\\Client\\" : "test/" }
-    },
-    "repositories": [
-        {
-          "type": "git",
-          "url": "https://github.com/git_user_id/git_repo_id.git"
-        }
-    ]
+    }
 }

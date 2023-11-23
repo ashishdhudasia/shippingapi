@@ -80,7 +80,7 @@ class Configuration
      *
      * @var string
      */
-    protected $host = 'https://api.itembase.com/connectivity';
+    protected $host = 'https://st01.api.itembase.com/connectivity';
 
     /**
      * User agent of the HTTP request, set to "PHP-Swagger" by default
