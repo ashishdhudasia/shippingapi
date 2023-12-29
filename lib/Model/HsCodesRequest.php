@@ -192,9 +192,6 @@ class HsCodesRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['shipper_reference'] === null) {
-            $invalidProperties[] = "'shipper_reference' can't be null";
-        }
         if ($this->container['products'] === null) {
             $invalidProperties[] = "'products' can't be null";
         }

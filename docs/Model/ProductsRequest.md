@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **product_id** | **string** |  | [optional] 
-**description** | **string** |  | 
+**description** | **string** |  | [optional] 
 **sku** | **string** |  | [optional] 
 **origin_country** | **string** |  | [optional] 
 **attribute1** | **string** |  | [optional] 

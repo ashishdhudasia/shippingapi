@@ -76,7 +76,8 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
         'tax_charge' => 'string',
         'total_charge' => 'string',
         'total_charge_with_tax' => 'string',
-        'ship_discount' => 'string'
+        'ship_discount' => 'string',
+        'delivery_date' => 'string'
     ];
 
     /**
@@ -105,7 +106,8 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
         'tax_charge' => null,
         'total_charge' => null,
         'total_charge_with_tax' => null,
-        'ship_discount' => null
+        'ship_discount' => null,
+        'delivery_date' => null
     ];
 
     /**
@@ -155,7 +157,8 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
         'tax_charge' => 'taxCharge',
         'total_charge' => 'totalCharge',
         'total_charge_with_tax' => 'totalChargeWithTax',
-        'ship_discount' => 'shipDiscount'
+        'ship_discount' => 'shipDiscount',
+        'delivery_date' => 'deliveryDate'
     ];
 
     /**
@@ -184,7 +187,8 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
         'tax_charge' => 'setTaxCharge',
         'total_charge' => 'setTotalCharge',
         'total_charge_with_tax' => 'setTotalChargeWithTax',
-        'ship_discount' => 'setShipDiscount'
+        'ship_discount' => 'setShipDiscount',
+        'delivery_date' => 'setDeliveryDate'
     ];
 
     /**
@@ -213,7 +217,8 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
         'tax_charge' => 'getTaxCharge',
         'total_charge' => 'getTotalCharge',
         'total_charge_with_tax' => 'getTotalChargeWithTax',
-        'ship_discount' => 'getShipDiscount'
+        'ship_discount' => 'getShipDiscount',
+        'delivery_date' => 'getDeliveryDate'
     ];
 
     /**
@@ -295,6 +300,7 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
         $this->container['total_charge'] = isset($data['total_charge']) ? $data['total_charge'] : null;
         $this->container['total_charge_with_tax'] = isset($data['total_charge_with_tax']) ? $data['total_charge_with_tax'] : null;
         $this->container['ship_discount'] = isset($data['ship_discount']) ? $data['ship_discount'] : null;
+        $this->container['delivery_date'] = isset($data['delivery_date']) ? $data['delivery_date'] : null;
     }
 
     /**
@@ -821,6 +827,30 @@ class GetShippingRateResponseRate implements ModelInterface, ArrayAccess
     public function setShipDiscount($ship_discount)
     {
         $this->container['ship_discount'] = $ship_discount;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_date
+     *
+     * @return string
+     */
+    public function getDeliveryDate()
+    {
+        return $this->container['delivery_date'];
+    }
+
+    /**
+     * Sets delivery_date
+     *
+     * @param string $delivery_date delivery_date
+     *
+     * @return $this
+     */
+    public function setDeliveryDate($delivery_date)
+    {
+        $this->container['delivery_date'] = $delivery_date;
 
         return $this;
     }

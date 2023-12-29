@@ -99,6 +99,13 @@ class GetShippingLabelResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "shipment_id"
+     */
+    public function testPropertyShipmentId()
+    {
+    }
+
+    /**
      * Test attribute "service"
      */
     public function testPropertyService()

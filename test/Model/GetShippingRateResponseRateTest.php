@@ -223,4 +223,11 @@ class GetShippingRateResponseRateTest extends TestCase
     public function testPropertyShipDiscount()
     {
     }
+
+    /**
+     * Test attribute "delivery_date"
+     */
+    public function testPropertyDeliveryDate()
+    {
+    }
 }

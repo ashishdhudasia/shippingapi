@@ -58,6 +58,7 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $swaggerTypes = [
         'tracking_number' => 'string',
         'shipper_reference' => 'string',
+        'shipment_id' => 'string',
         'warning' => 'string'
     ];
 
@@ -69,6 +70,7 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $swaggerFormats = [
         'tracking_number' => null,
         'shipper_reference' => null,
+        'shipment_id' => null,
         'warning' => null
     ];
 
@@ -101,6 +103,7 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'tracking_number' => 'trackingNumber',
         'shipper_reference' => 'shipperReference',
+        'shipment_id' => 'shipmentId',
         'warning' => 'warning'
     ];
 
@@ -112,6 +115,7 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'tracking_number' => 'setTrackingNumber',
         'shipper_reference' => 'setShipperReference',
+        'shipment_id' => 'setShipmentId',
         'warning' => 'setWarning'
     ];
 
@@ -123,6 +127,7 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'tracking_number' => 'getTrackingNumber',
         'shipper_reference' => 'getShipperReference',
+        'shipment_id' => 'getShipmentId',
         'warning' => 'getWarning'
     ];
 
@@ -186,6 +191,7 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     {
         $this->container['tracking_number'] = isset($data['tracking_number']) ? $data['tracking_number'] : null;
         $this->container['shipper_reference'] = isset($data['shipper_reference']) ? $data['shipper_reference'] : null;
+        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
         $this->container['warning'] = isset($data['warning']) ? $data['warning'] : null;
     }
 
@@ -257,6 +263,30 @@ class CancelShippingLabelResponse implements ModelInterface, ArrayAccess
     public function setShipperReference($shipper_reference)
     {
         $this->container['shipper_reference'] = $shipper_reference;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_id
+     *
+     * @return string
+     */
+    public function getShipmentId()
+    {
+        return $this->container['shipment_id'];
+    }
+
+    /**
+     * Sets shipment_id
+     *
+     * @param string $shipment_id shipment_id
+     *
+     * @return $this
+     */
+    public function setShipmentId($shipment_id)
+    {
+        $this->container['shipment_id'] = $shipment_id;
 
         return $this;
     }

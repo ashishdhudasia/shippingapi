@@ -60,6 +60,7 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
         'return_tracking_number' => 'string',
         'shipper_reference' => 'string',
         'display_id' => 'string',
+        'shipment_id' => 'string',
         'service' => 'string',
         'carrier' => 'string',
         'carrier_tracking_number' => 'string',
@@ -84,6 +85,7 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
         'return_tracking_number' => null,
         'shipper_reference' => null,
         'display_id' => null,
+        'shipment_id' => null,
         'service' => null,
         'carrier' => null,
         'carrier_tracking_number' => null,
@@ -129,6 +131,7 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
         'return_tracking_number' => 'returnTrackingNumber',
         'shipper_reference' => 'shipperReference',
         'display_id' => 'displayId',
+        'shipment_id' => 'shipmentId',
         'service' => 'service',
         'carrier' => 'carrier',
         'carrier_tracking_number' => 'carrierTrackingNumber',
@@ -153,6 +156,7 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
         'return_tracking_number' => 'setReturnTrackingNumber',
         'shipper_reference' => 'setShipperReference',
         'display_id' => 'setDisplayId',
+        'shipment_id' => 'setShipmentId',
         'service' => 'setService',
         'carrier' => 'setCarrier',
         'carrier_tracking_number' => 'setCarrierTrackingNumber',
@@ -177,6 +181,7 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
         'return_tracking_number' => 'getReturnTrackingNumber',
         'shipper_reference' => 'getShipperReference',
         'display_id' => 'getDisplayId',
+        'shipment_id' => 'getShipmentId',
         'service' => 'getService',
         'carrier' => 'getCarrier',
         'carrier_tracking_number' => 'getCarrierTrackingNumber',
@@ -253,6 +258,7 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
         $this->container['return_tracking_number'] = isset($data['return_tracking_number']) ? $data['return_tracking_number'] : null;
         $this->container['shipper_reference'] = isset($data['shipper_reference']) ? $data['shipper_reference'] : null;
         $this->container['display_id'] = isset($data['display_id']) ? $data['display_id'] : null;
+        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
         $this->container['service'] = isset($data['service']) ? $data['service'] : null;
         $this->container['carrier'] = isset($data['carrier']) ? $data['carrier'] : null;
         $this->container['carrier_tracking_number'] = isset($data['carrier_tracking_number']) ? $data['carrier_tracking_number'] : null;
@@ -383,6 +389,30 @@ class CreateShippingLabelResponse implements ModelInterface, ArrayAccess
     public function setDisplayId($display_id)
     {
         $this->container['display_id'] = $display_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_id
+     *
+     * @return string
+     */
+    public function getShipmentId()
+    {
+        return $this->container['shipment_id'];
+    }
+
+    /**
+     * Sets shipment_id
+     *
+     * @param string $shipment_id shipment_id
+     *
+     * @return $this
+     */
+    public function setShipmentId($shipment_id)
+    {
+        $this->container['shipment_id'] = $shipment_id;
 
         return $this;
     }

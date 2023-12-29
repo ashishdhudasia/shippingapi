@@ -71,7 +71,11 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         'length' => 'string',
         'width' => 'string',
         'height' => 'string',
-        'dim_unit' => 'string'
+        'dim_unit' => 'string',
+        'currency' => 'string',
+        'label_type' => 'string',
+        'label_format' => 'string',
+        'customs_info' => '\Swagger\Client\Model\CustomsInfo'
     ];
 
     /**
@@ -95,7 +99,11 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         'length' => null,
         'width' => null,
         'height' => null,
-        'dim_unit' => null
+        'dim_unit' => null,
+        'currency' => null,
+        'label_type' => null,
+        'label_format' => null,
+        'customs_info' => null
     ];
 
     /**
@@ -140,7 +148,11 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         'length' => 'length',
         'width' => 'width',
         'height' => 'height',
-        'dim_unit' => 'dimUnit'
+        'dim_unit' => 'dimUnit',
+        'currency' => 'currency',
+        'label_type' => 'labelType',
+        'label_format' => 'labelFormat',
+        'customs_info' => 'customsInfo'
     ];
 
     /**
@@ -164,7 +176,11 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         'length' => 'setLength',
         'width' => 'setWidth',
         'height' => 'setHeight',
-        'dim_unit' => 'setDimUnit'
+        'dim_unit' => 'setDimUnit',
+        'currency' => 'setCurrency',
+        'label_type' => 'setLabelType',
+        'label_format' => 'setLabelFormat',
+        'customs_info' => 'setCustomsInfo'
     ];
 
     /**
@@ -188,7 +204,11 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         'length' => 'getLength',
         'width' => 'getWidth',
         'height' => 'getHeight',
-        'dim_unit' => 'getDimUnit'
+        'dim_unit' => 'getDimUnit',
+        'currency' => 'getCurrency',
+        'label_type' => 'getLabelType',
+        'label_format' => 'getLabelFormat',
+        'customs_info' => 'getCustomsInfo'
     ];
 
     /**
@@ -232,7 +252,23 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
+    const LABEL_TYPE_FORWARD = 'FORWARD';
+    const LABEL_TYPE__RETURN = 'RETURN';
+    const LABEL_TYPE_FORWARD_RETURN = 'FORWARD_RETURN';
 
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLabelTypeAllowableValues()
+    {
+        return [
+            self::LABEL_TYPE_FORWARD,
+            self::LABEL_TYPE__RETURN,
+            self::LABEL_TYPE_FORWARD_RETURN,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -265,6 +301,10 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
         $this->container['width'] = isset($data['width']) ? $data['width'] : null;
         $this->container['height'] = isset($data['height']) ? $data['height'] : null;
         $this->container['dim_unit'] = isset($data['dim_unit']) ? $data['dim_unit'] : null;
+        $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
+        $this->container['label_type'] = isset($data['label_type']) ? $data['label_type'] : null;
+        $this->container['label_format'] = isset($data['label_format']) ? $data['label_format'] : null;
+        $this->container['customs_info'] = isset($data['customs_info']) ? $data['customs_info'] : null;
     }
 
     /**
@@ -275,6 +315,14 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        $allowedValues = $this->getLabelTypeAllowableValues();
+        if (!is_null($this->container['label_type']) && !in_array($this->container['label_type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'label_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -671,6 +719,111 @@ class GetShippingRateRequest implements ModelInterface, ArrayAccess
     public function setDimUnit($dim_unit)
     {
         $this->container['dim_unit'] = $dim_unit;
+
+        return $this;
+    }
+
+    /**
+     * Gets currency
+     *
+     * @return string
+     */
+    public function getCurrency()
+    {
+        return $this->container['currency'];
+    }
+
+    /**
+     * Sets currency
+     *
+     * @param string $currency currency
+     *
+     * @return $this
+     */
+    public function setCurrency($currency)
+    {
+        $this->container['currency'] = $currency;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_type
+     *
+     * @return string
+     */
+    public function getLabelType()
+    {
+        return $this->container['label_type'];
+    }
+
+    /**
+     * Sets label_type
+     *
+     * @param string $label_type label_type
+     *
+     * @return $this
+     */
+    public function setLabelType($label_type)
+    {
+        $allowedValues = $this->getLabelTypeAllowableValues();
+        if (!is_null($label_type) && !in_array($label_type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'label_type', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['label_type'] = $label_type;
+
+        return $this;
+    }
+
+    /**
+     * Gets label_format
+     *
+     * @return string
+     */
+    public function getLabelFormat()
+    {
+        return $this->container['label_format'];
+    }
+
+    /**
+     * Sets label_format
+     *
+     * @param string $label_format label_format
+     *
+     * @return $this
+     */
+    public function setLabelFormat($label_format)
+    {
+        $this->container['label_format'] = $label_format;
+
+        return $this;
+    }
+
+    /**
+     * Gets customs_info
+     *
+     * @return \Swagger\Client\Model\CustomsInfo
+     */
+    public function getCustomsInfo()
+    {
+        return $this->container['customs_info'];
+    }
+
+    /**
+     * Sets customs_info
+     *
+     * @param \Swagger\Client\Model\CustomsInfo $customs_info customs_info
+     *
+     * @return $this
+     */
+    public function setCustomsInfo($customs_info)
+    {
+        $this->container['customs_info'] = $customs_info;
 
         return $this;
     }

@@ -61,7 +61,9 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
         'account_number' => 'string',
         'access_key' => 'string',
         'webhook_url' => 'string',
-        'hs_provider' => 'string'
+        'hs_provider' => 'string',
+        'email' => 'string',
+        'store_url' => 'string'
     ];
 
     /**
@@ -75,7 +77,9 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
         'account_number' => null,
         'access_key' => null,
         'webhook_url' => null,
-        'hs_provider' => null
+        'hs_provider' => null,
+        'email' => null,
+        'store_url' => null
     ];
 
     /**
@@ -110,7 +114,9 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
         'account_number' => 'accountNumber',
         'access_key' => 'accessKey',
         'webhook_url' => 'webhookUrl',
-        'hs_provider' => 'hsProvider'
+        'hs_provider' => 'hsProvider',
+        'email' => 'email',
+        'store_url' => 'storeUrl'
     ];
 
     /**
@@ -124,7 +130,9 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
         'account_number' => 'setAccountNumber',
         'access_key' => 'setAccessKey',
         'webhook_url' => 'setWebhookUrl',
-        'hs_provider' => 'setHsProvider'
+        'hs_provider' => 'setHsProvider',
+        'email' => 'setEmail',
+        'store_url' => 'setStoreUrl'
     ];
 
     /**
@@ -138,7 +146,9 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
         'account_number' => 'getAccountNumber',
         'access_key' => 'getAccessKey',
         'webhook_url' => 'getWebhookUrl',
-        'hs_provider' => 'getHsProvider'
+        'hs_provider' => 'getHsProvider',
+        'email' => 'getEmail',
+        'store_url' => 'getStoreUrl'
     ];
 
     /**
@@ -193,8 +203,8 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
     public function getHsProviderAllowableValues()
     {
         return [
-            self::HS_PROVIDER_HURRICANE
-            self::HS_PROVIDER_UPS
+            self::HS_PROVIDER_HURRICANE,
+            self::HS_PROVIDER_UPS,
         ];
     }
 
@@ -219,6 +229,8 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
         $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
         $this->container['webhook_url'] = isset($data['webhook_url']) ? $data['webhook_url'] : null;
         $this->container['hs_provider'] = isset($data['hs_provider']) ? $data['hs_provider'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['store_url'] = isset($data['store_url']) ? $data['store_url'] : null;
     }
 
     /**
@@ -402,6 +414,54 @@ class ShippingLabelUpdateCredentials implements ModelInterface, ArrayAccess
             );
         }
         $this->container['hs_provider'] = $hs_provider;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string $email email
+     *
+     * @return $this
+     */
+    public function setEmail($email)
+    {
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_url
+     *
+     * @return string
+     */
+    public function getStoreUrl()
+    {
+        return $this->container['store_url'];
+    }
+
+    /**
+     * Sets store_url
+     *
+     * @param string $store_url store_url
+     *
+     * @return $this
+     */
+    public function setStoreUrl($store_url)
+    {
+        $this->container['store_url'] = $store_url;
 
         return $this;
     }

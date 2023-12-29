@@ -382,6 +382,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -408,14 +412,15 @@ class LinnworksApi
      *
      * Empty handler
      *
+     * @param  string $instance_id instance_id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\EmptyObjectResponse
      */
-    public function callEmpty()
+    public function callEmpty($instance_id)
     {
-        list($response) = $this->callEmptyWithHttpInfo();
+        list($response) = $this->callEmptyWithHttpInfo($instance_id);
         return $response;
     }
 
@@ -424,15 +429,16 @@ class LinnworksApi
      *
      * Empty handler
      *
+     * @param  string $instance_id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\EmptyObjectResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function callEmptyWithHttpInfo()
+    public function callEmptyWithHttpInfo($instance_id)
     {
         $returnType = '\Swagger\Client\Model\EmptyObjectResponse';
-        $request = $this->callEmptyRequest();
+        $request = $this->callEmptyRequest($instance_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -530,13 +536,14 @@ class LinnworksApi
      *
      * Empty handler
      *
+     * @param  string $instance_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callEmptyAsync()
+    public function callEmptyAsync($instance_id)
     {
-        return $this->callEmptyAsyncWithHttpInfo()
+        return $this->callEmptyAsyncWithHttpInfo($instance_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -549,14 +556,15 @@ class LinnworksApi
      *
      * Empty handler
      *
+     * @param  string $instance_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function callEmptyAsyncWithHttpInfo()
+    public function callEmptyAsyncWithHttpInfo($instance_id)
     {
         $returnType = '\Swagger\Client\Model\EmptyObjectResponse';
-        $request = $this->callEmptyRequest();
+        $request = $this->callEmptyRequest($instance_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -598,12 +606,19 @@ class LinnworksApi
     /**
      * Create request for operation 'callEmpty'
      *
+     * @param  string $instance_id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function callEmptyRequest()
+    protected function callEmptyRequest($instance_id)
     {
+        // verify the required parameter 'instance_id' is set
+        if ($instance_id === null || (is_array($instance_id) && count($instance_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $instance_id when calling callEmpty'
+            );
+        }
 
         $resourcePath = '/instances/{instanceId}/connections/shipping/api/v2/extint/linnworks/empty**/**';
         $formParams = [];
@@ -613,6 +628,14 @@ class LinnworksApi
         $multipart = false;
 
 
+        // path params
+        if ($instance_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'instanceId' . '}',
+                ObjectSerializer::toPathValue($instance_id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -657,6 +680,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -974,6 +1001,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1291,6 +1322,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1608,6 +1643,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -1925,6 +1964,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2242,6 +2285,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2559,6 +2606,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -2876,6 +2927,10 @@ class LinnworksApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

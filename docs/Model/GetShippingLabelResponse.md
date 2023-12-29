@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 **tracking_number** | **string** |  | [optional] 
 **shipper_reference** | **string** |  | [optional] 
 **display_id** | **string** |  | [optional] 
+**shipment_id** | **string** |  | [optional] 
 **service** | **string** |  | [optional] 
 **carrier** | **string** |  | [optional] 
 **carrier_tracking_number** | **string** |  | [optional] 

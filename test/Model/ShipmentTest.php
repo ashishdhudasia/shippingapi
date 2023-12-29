@@ -265,4 +265,11 @@ class ShipmentTest extends TestCase
     public function testPropertySource()
     {
     }
+
+    /**
+     * Test attribute "shipment_id"
+     */
+    public function testPropertyShipmentId()
+    {
+    }
 }

@@ -19,6 +19,10 @@ Name | Type | Description | Notes
 **width** | **string** |  | [optional] 
 **height** | **string** |  | [optional] 
 **dim_unit** | **string** |  | [optional] 
+**currency** | **string** |  | [optional] 
+**label_type** | **string** |  | [optional] 
+**label_format** | **string** |  | [optional] 
+**customs_info** | [**\Swagger\Client\Model\CustomsInfo**](CustomsInfo.md) |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

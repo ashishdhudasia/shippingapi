@@ -95,15 +95,16 @@ class ShippingLabelApi
      * @param  string $connection_id connection_id (required)
      * @param  string $shipper_reference shipper_reference (optional)
      * @param  string $tracking_number tracking_number (optional)
+     * @param  string $shipment_id shipment_id (optional)
      * @param  bool $test_mode test_mode (optional, default to false)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\CancelShippingLabelResponse
      */
-    public function cancelShippingLabel($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function cancelShippingLabel($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $shipment_id = null, $test_mode = 'false')
     {
-        list($response) = $this->cancelShippingLabelWithHttpInfo($instance_id, $connection_id, $shipper_reference, $tracking_number, $test_mode);
+        list($response) = $this->cancelShippingLabelWithHttpInfo($instance_id, $connection_id, $shipper_reference, $tracking_number, $shipment_id, $test_mode);
         return $response;
     }
 
@@ -116,16 +117,17 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $shipper_reference (optional)
      * @param  string $tracking_number (optional)
+     * @param  string $shipment_id (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\CancelShippingLabelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelShippingLabelWithHttpInfo($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function cancelShippingLabelWithHttpInfo($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $shipment_id = null, $test_mode = 'false')
     {
         $returnType = '\Swagger\Client\Model\CancelShippingLabelResponse';
-        $request = $this->cancelShippingLabelRequest($instance_id, $connection_id, $shipper_reference, $tracking_number, $test_mode);
+        $request = $this->cancelShippingLabelRequest($instance_id, $connection_id, $shipper_reference, $tracking_number, $shipment_id, $test_mode);
 
         try {
             $options = $this->createHttpClientOption();
@@ -227,14 +229,15 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $shipper_reference (optional)
      * @param  string $tracking_number (optional)
+     * @param  string $shipment_id (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelShippingLabelAsync($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function cancelShippingLabelAsync($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $shipment_id = null, $test_mode = 'false')
     {
-        return $this->cancelShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $shipper_reference, $tracking_number, $test_mode)
+        return $this->cancelShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $shipper_reference, $tracking_number, $shipment_id, $test_mode)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -251,15 +254,16 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $shipper_reference (optional)
      * @param  string $tracking_number (optional)
+     * @param  string $shipment_id (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function cancelShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $shipment_id = null, $test_mode = 'false')
     {
         $returnType = '\Swagger\Client\Model\CancelShippingLabelResponse';
-        $request = $this->cancelShippingLabelRequest($instance_id, $connection_id, $shipper_reference, $tracking_number, $test_mode);
+        $request = $this->cancelShippingLabelRequest($instance_id, $connection_id, $shipper_reference, $tracking_number, $shipment_id, $test_mode);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -305,12 +309,13 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $shipper_reference (optional)
      * @param  string $tracking_number (optional)
+     * @param  string $shipment_id (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelShippingLabelRequest($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    protected function cancelShippingLabelRequest($instance_id, $connection_id, $shipper_reference = null, $tracking_number = null, $shipment_id = null, $test_mode = 'false')
     {
         // verify the required parameter 'instance_id' is set
         if ($instance_id === null || (is_array($instance_id) && count($instance_id) === 0)) {
@@ -339,6 +344,10 @@ class ShippingLabelApi
         // query params
         if ($tracking_number !== null) {
             $queryParams['trackingNumber'] = ObjectSerializer::toQueryValue($tracking_number, null);
+        }
+        // query params
+        if ($shipment_id !== null) {
+            $queryParams['shipmentId'] = ObjectSerializer::toQueryValue($shipment_id, null);
         }
         // query params
         if ($test_mode !== null) {
@@ -405,6 +414,10 @@ class ShippingLabelApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -741,6 +754,10 @@ class ShippingLabelApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -771,6 +788,7 @@ class ShippingLabelApi
      * @param  string $connection_id connection_id (required)
      * @param  string $label_format label_format (optional)
      * @param  string $shipper_reference shipper_reference (optional)
+     * @param  string $shipment_id shipment_id (optional)
      * @param  string $tracking_number tracking_number (optional)
      * @param  bool $test_mode test_mode (optional, default to false)
      *
@@ -778,9 +796,9 @@ class ShippingLabelApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\GetShippingLabelResponse
      */
-    public function getShippingLabel($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function getShippingLabel($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $shipment_id = null, $tracking_number = null, $test_mode = 'false')
     {
-        list($response) = $this->getShippingLabelWithHttpInfo($instance_id, $connection_id, $label_format, $shipper_reference, $tracking_number, $test_mode);
+        list($response) = $this->getShippingLabelWithHttpInfo($instance_id, $connection_id, $label_format, $shipper_reference, $shipment_id, $tracking_number, $test_mode);
         return $response;
     }
 
@@ -793,6 +811,7 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $label_format (optional)
      * @param  string $shipper_reference (optional)
+     * @param  string $shipment_id (optional)
      * @param  string $tracking_number (optional)
      * @param  bool $test_mode (optional, default to false)
      *
@@ -800,10 +819,10 @@ class ShippingLabelApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\GetShippingLabelResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getShippingLabelWithHttpInfo($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function getShippingLabelWithHttpInfo($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $shipment_id = null, $tracking_number = null, $test_mode = 'false')
     {
         $returnType = '\Swagger\Client\Model\GetShippingLabelResponse';
-        $request = $this->getShippingLabelRequest($instance_id, $connection_id, $label_format, $shipper_reference, $tracking_number, $test_mode);
+        $request = $this->getShippingLabelRequest($instance_id, $connection_id, $label_format, $shipper_reference, $shipment_id, $tracking_number, $test_mode);
 
         try {
             $options = $this->createHttpClientOption();
@@ -905,15 +924,16 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $label_format (optional)
      * @param  string $shipper_reference (optional)
+     * @param  string $shipment_id (optional)
      * @param  string $tracking_number (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingLabelAsync($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function getShippingLabelAsync($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $shipment_id = null, $tracking_number = null, $test_mode = 'false')
     {
-        return $this->getShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $label_format, $shipper_reference, $tracking_number, $test_mode)
+        return $this->getShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $label_format, $shipper_reference, $shipment_id, $tracking_number, $test_mode)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -930,16 +950,17 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $label_format (optional)
      * @param  string $shipper_reference (optional)
+     * @param  string $shipment_id (optional)
      * @param  string $tracking_number (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    public function getShippingLabelAsyncWithHttpInfo($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $shipment_id = null, $tracking_number = null, $test_mode = 'false')
     {
         $returnType = '\Swagger\Client\Model\GetShippingLabelResponse';
-        $request = $this->getShippingLabelRequest($instance_id, $connection_id, $label_format, $shipper_reference, $tracking_number, $test_mode);
+        $request = $this->getShippingLabelRequest($instance_id, $connection_id, $label_format, $shipper_reference, $shipment_id, $tracking_number, $test_mode);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -985,13 +1006,14 @@ class ShippingLabelApi
      * @param  string $connection_id (required)
      * @param  string $label_format (optional)
      * @param  string $shipper_reference (optional)
+     * @param  string $shipment_id (optional)
      * @param  string $tracking_number (optional)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getShippingLabelRequest($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $tracking_number = null, $test_mode = 'false')
+    protected function getShippingLabelRequest($instance_id, $connection_id, $label_format = null, $shipper_reference = null, $shipment_id = null, $tracking_number = null, $test_mode = 'false')
     {
         // verify the required parameter 'instance_id' is set
         if ($instance_id === null || (is_array($instance_id) && count($instance_id) === 0)) {
@@ -1020,6 +1042,10 @@ class ShippingLabelApi
         // query params
         if ($shipper_reference !== null) {
             $queryParams['shipperReference'] = ObjectSerializer::toQueryValue($shipper_reference, null);
+        }
+        // query params
+        if ($shipment_id !== null) {
+            $queryParams['shipmentId'] = ObjectSerializer::toQueryValue($shipment_id, null);
         }
         // query params
         if ($tracking_number !== null) {
@@ -1090,6 +1116,10 @@ class ShippingLabelApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
