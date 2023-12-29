@@ -1,0 +1,13 @@
+{
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://adhudasia@bitbucket.org/itembase/iws-isa.git"
+    }
+  ],
+  "require": {
+    "itembase/iws-isa": "master",
+    "firebase/php-jwt": "dev-main"
+  }
+}
