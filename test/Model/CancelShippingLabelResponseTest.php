@@ -92,6 +92,13 @@ class CancelShippingLabelResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "shipment_id"
+     */
+    public function testPropertyShipmentId()
+    {
+    }
+
+    /**
      * Test attribute "warning"
      */
     public function testPropertyWarning()

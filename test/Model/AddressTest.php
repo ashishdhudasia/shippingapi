@@ -125,4 +125,18 @@ class AddressTest extends TestCase
     public function testPropertyAddressLine3()
     {
     }
+
+    /**
+     * Test attribute "company"
+     */
+    public function testPropertyCompany()
+    {
+    }
+
+    /**
+     * Test attribute "phone"
+     */
+    public function testPropertyPhone()
+    {
+    }
 }

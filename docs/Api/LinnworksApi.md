@@ -23,11 +23,16 @@ Add User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksAddUserRequest(); // \Swagger\Client\Model\LinnworksAddUserRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -56,7 +61,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -66,7 +71,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **callEmpty**
-> \Swagger\Client\Model\EmptyObjectResponse callEmpty()
+> \Swagger\Client\Model\EmptyObjectResponse callEmpty($instance_id)
 
 Empty handler
 
@@ -74,15 +79,21 @@ Empty handler
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
+$instance_id = "instance_id_example"; // string | 
 
 try {
-    $result = $apiInstance->callEmpty();
+    $result = $apiInstance->callEmpty($instance_id);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinnworksApi->callEmpty: ', $e->getMessage(), PHP_EOL;
@@ -91,7 +102,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **string**|  |
 
 ### Return type
 
@@ -99,7 +113,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -117,11 +131,16 @@ Cancel label
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksShippingCancelRequest(); // \Swagger\Client\Model\LinnworksShippingCancelRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -150,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -168,11 +187,16 @@ Create label
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksShippingLabelRequest(); // \Swagger\Client\Model\LinnworksShippingLabelRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -201,7 +225,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -219,11 +243,16 @@ Get available services
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksUserAvailableServicesRequest(); // \Swagger\Client\Model\LinnworksUserAvailableServicesRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -252,7 +281,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -270,11 +299,16 @@ Get Extended Property mapping
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksExportPropertyMapRequest(); // \Swagger\Client\Model\LinnworksExportPropertyMapRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -303,7 +337,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -321,11 +355,16 @@ Get User Config
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksUserConfigRequest(); // \Swagger\Client\Model\LinnworksUserConfigRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -354,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -372,11 +411,16 @@ Update User Config
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksUpdateConfigRequest(); // \Swagger\Client\Model\LinnworksUpdateConfigRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -405,7 +449,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -423,11 +467,16 @@ Delete User
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\LinnworksApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\LinnworksUserConfigRequest(); // \Swagger\Client\Model\LinnworksUserConfigRequest | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -456,7 +505,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 

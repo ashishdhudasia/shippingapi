@@ -188,4 +188,32 @@ class GetShippingRateRequestTest extends TestCase
     public function testPropertyDimUnit()
     {
     }
+
+    /**
+     * Test attribute "currency"
+     */
+    public function testPropertyCurrency()
+    {
+    }
+
+    /**
+     * Test attribute "label_type"
+     */
+    public function testPropertyLabelType()
+    {
+    }
+
+    /**
+     * Test attribute "label_format"
+     */
+    public function testPropertyLabelFormat()
+    {
+    }
+
+    /**
+     * Test attribute "customs_info"
+     */
+    public function testPropertyCustomsInfo()
+    {
+    }
 }

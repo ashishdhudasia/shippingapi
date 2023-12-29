@@ -118,4 +118,18 @@ class ShippingLabelUpdateCredentialsTest extends TestCase
     public function testPropertyHsProvider()
     {
     }
+
+    /**
+     * Test attribute "email"
+     */
+    public function testPropertyEmail()
+    {
+    }
+
+    /**
+     * Test attribute "store_url"
+     */
+    public function testPropertyStoreUrl()
+    {
+    }
 }

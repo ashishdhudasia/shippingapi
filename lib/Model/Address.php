@@ -62,7 +62,9 @@ class Address implements ModelInterface, ArrayAccess
         'country' => 'string',
         'address_line1' => 'string',
         'address_line2' => 'string',
-        'address_line3' => 'string'
+        'address_line3' => 'string',
+        'company' => 'string',
+        'phone' => 'string'
     ];
 
     /**
@@ -77,7 +79,9 @@ class Address implements ModelInterface, ArrayAccess
         'country' => null,
         'address_line1' => null,
         'address_line2' => null,
-        'address_line3' => null
+        'address_line3' => null,
+        'company' => null,
+        'phone' => null
     ];
 
     /**
@@ -113,7 +117,9 @@ class Address implements ModelInterface, ArrayAccess
         'country' => 'country',
         'address_line1' => 'addressLine1',
         'address_line2' => 'addressLine2',
-        'address_line3' => 'addressLine3'
+        'address_line3' => 'addressLine3',
+        'company' => 'company',
+        'phone' => 'phone'
     ];
 
     /**
@@ -128,7 +134,9 @@ class Address implements ModelInterface, ArrayAccess
         'country' => 'setCountry',
         'address_line1' => 'setAddressLine1',
         'address_line2' => 'setAddressLine2',
-        'address_line3' => 'setAddressLine3'
+        'address_line3' => 'setAddressLine3',
+        'company' => 'setCompany',
+        'phone' => 'setPhone'
     ];
 
     /**
@@ -143,7 +151,9 @@ class Address implements ModelInterface, ArrayAccess
         'country' => 'getCountry',
         'address_line1' => 'getAddressLine1',
         'address_line2' => 'getAddressLine2',
-        'address_line3' => 'getAddressLine3'
+        'address_line3' => 'getAddressLine3',
+        'company' => 'getCompany',
+        'phone' => 'getPhone'
     ];
 
     /**
@@ -211,6 +221,8 @@ class Address implements ModelInterface, ArrayAccess
         $this->container['address_line1'] = isset($data['address_line1']) ? $data['address_line1'] : null;
         $this->container['address_line2'] = isset($data['address_line2']) ? $data['address_line2'] : null;
         $this->container['address_line3'] = isset($data['address_line3']) ? $data['address_line3'] : null;
+        $this->container['company'] = isset($data['company']) ? $data['company'] : null;
+        $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
     }
 
     /**
@@ -401,6 +413,54 @@ class Address implements ModelInterface, ArrayAccess
     public function setAddressLine3($address_line3)
     {
         $this->container['address_line3'] = $address_line3;
+
+        return $this;
+    }
+
+    /**
+     * Gets company
+     *
+     * @return string
+     */
+    public function getCompany()
+    {
+        return $this->container['company'];
+    }
+
+    /**
+     * Sets company
+     *
+     * @param string $company company
+     *
+     * @return $this
+     */
+    public function setCompany($company)
+    {
+        $this->container['company'] = $company;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->container['phone'];
+    }
+
+    /**
+     * Sets phone
+     *
+     * @param string $phone phone
+     *
+     * @return $this
+     */
+    public function setPhone($phone)
+    {
+        $this->container['phone'] = $phone;
 
         return $this;
     }

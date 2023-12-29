@@ -82,7 +82,8 @@ class Shipment implements ModelInterface, ArrayAccess
         'consignee_address' => '\Swagger\Client\Model\ConsigneeAddress',
         'products' => '\Swagger\Client\Model\Product[]',
         'return_service_type' => 'string',
-        'source' => 'string'
+        'source' => 'string',
+        'shipment_id' => 'string'
     ];
 
     /**
@@ -117,7 +118,8 @@ class Shipment implements ModelInterface, ArrayAccess
         'consignee_address' => null,
         'products' => null,
         'return_service_type' => null,
-        'source' => null
+        'source' => null,
+        'shipment_id' => null
     ];
 
     /**
@@ -173,7 +175,8 @@ class Shipment implements ModelInterface, ArrayAccess
         'consignee_address' => 'consigneeAddress',
         'products' => 'products',
         'return_service_type' => 'returnServiceType',
-        'source' => 'source'
+        'source' => 'source',
+        'shipment_id' => 'shipmentId'
     ];
 
     /**
@@ -208,7 +211,8 @@ class Shipment implements ModelInterface, ArrayAccess
         'consignee_address' => 'setConsigneeAddress',
         'products' => 'setProducts',
         'return_service_type' => 'setReturnServiceType',
-        'source' => 'setSource'
+        'source' => 'setSource',
+        'shipment_id' => 'setShipmentId'
     ];
 
     /**
@@ -243,7 +247,8 @@ class Shipment implements ModelInterface, ArrayAccess
         'consignee_address' => 'getConsigneeAddress',
         'products' => 'getProducts',
         'return_service_type' => 'getReturnServiceType',
-        'source' => 'getSource'
+        'source' => 'getSource',
+        'shipment_id' => 'getShipmentId'
     ];
 
     /**
@@ -345,6 +350,7 @@ class Shipment implements ModelInterface, ArrayAccess
         $this->container['products'] = isset($data['products']) ? $data['products'] : null;
         $this->container['return_service_type'] = isset($data['return_service_type']) ? $data['return_service_type'] : null;
         $this->container['source'] = isset($data['source']) ? $data['source'] : null;
+        $this->container['shipment_id'] = isset($data['shipment_id']) ? $data['shipment_id'] : null;
     }
 
     /**
@@ -1032,6 +1038,30 @@ class Shipment implements ModelInterface, ArrayAccess
     public function setSource($source)
     {
         $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipment_id
+     *
+     * @return string
+     */
+    public function getShipmentId()
+    {
+        return $this->container['shipment_id'];
+    }
+
+    /**
+     * Sets shipment_id
+     *
+     * @param string $shipment_id shipment_id
+     *
+     * @return $this
+     */
+    public function setShipmentId($shipment_id)
+    {
+        $this->container['shipment_id'] = $shipment_id;
 
         return $this;
     }

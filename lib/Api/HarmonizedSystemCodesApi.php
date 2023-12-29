@@ -401,6 +401,10 @@ class HarmonizedSystemCodesApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -427,18 +431,18 @@ class HarmonizedSystemCodesApi
      *
      * Check products classification status
      *
+     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $body body (required)
      * @param  string $instance_id instance_id (required)
      * @param  string $connection_id connection_id (required)
-     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $request request (required)
      * @param  bool $test_mode test_mode (optional, default to false)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\HsCodesClassificationStatusResponse
      */
-    public function isClassified($instance_id, $connection_id, $request, $test_mode = 'false')
+    public function isClassified($body, $instance_id, $connection_id, $test_mode = 'false')
     {
-        list($response) = $this->isClassifiedWithHttpInfo($instance_id, $connection_id, $request, $test_mode);
+        list($response) = $this->isClassifiedWithHttpInfo($body, $instance_id, $connection_id, $test_mode);
         return $response;
     }
 
@@ -447,19 +451,19 @@ class HarmonizedSystemCodesApi
      *
      * Check products classification status
      *
+     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $body (required)
      * @param  string $instance_id (required)
      * @param  string $connection_id (required)
-     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $request (required)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\HsCodesClassificationStatusResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function isClassifiedWithHttpInfo($instance_id, $connection_id, $request, $test_mode = 'false')
+    public function isClassifiedWithHttpInfo($body, $instance_id, $connection_id, $test_mode = 'false')
     {
         $returnType = '\Swagger\Client\Model\HsCodesClassificationStatusResponse';
-        $request = $this->isClassifiedRequest($instance_id, $connection_id, $request, $test_mode);
+        $request = $this->isClassifiedRequest($body, $instance_id, $connection_id, $test_mode);
 
         try {
             $options = $this->createHttpClientOption();
@@ -557,17 +561,17 @@ class HarmonizedSystemCodesApi
      *
      * Check products classification status
      *
+     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $body (required)
      * @param  string $instance_id (required)
      * @param  string $connection_id (required)
-     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $request (required)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function isClassifiedAsync($instance_id, $connection_id, $request, $test_mode = 'false')
+    public function isClassifiedAsync($body, $instance_id, $connection_id, $test_mode = 'false')
     {
-        return $this->isClassifiedAsyncWithHttpInfo($instance_id, $connection_id, $request, $test_mode)
+        return $this->isClassifiedAsyncWithHttpInfo($body, $instance_id, $connection_id, $test_mode)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -580,18 +584,18 @@ class HarmonizedSystemCodesApi
      *
      * Check products classification status
      *
+     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $body (required)
      * @param  string $instance_id (required)
      * @param  string $connection_id (required)
-     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $request (required)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function isClassifiedAsyncWithHttpInfo($instance_id, $connection_id, $request, $test_mode = 'false')
+    public function isClassifiedAsyncWithHttpInfo($body, $instance_id, $connection_id, $test_mode = 'false')
     {
         $returnType = '\Swagger\Client\Model\HsCodesClassificationStatusResponse';
-        $request = $this->isClassifiedRequest($instance_id, $connection_id, $request, $test_mode);
+        $request = $this->isClassifiedRequest($body, $instance_id, $connection_id, $test_mode);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -633,16 +637,22 @@ class HarmonizedSystemCodesApi
     /**
      * Create request for operation 'isClassified'
      *
+     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $body (required)
      * @param  string $instance_id (required)
      * @param  string $connection_id (required)
-     * @param  \Swagger\Client\Model\HsCodesClassificationStatusRequest $request (required)
      * @param  bool $test_mode (optional, default to false)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function isClassifiedRequest($instance_id, $connection_id, $request, $test_mode = 'false')
+    protected function isClassifiedRequest($body, $instance_id, $connection_id, $test_mode = 'false')
     {
+        // verify the required parameter 'body' is set
+        if ($body === null || (is_array($body) && count($body) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $body when calling isClassified'
+            );
+        }
         // verify the required parameter 'instance_id' is set
         if ($instance_id === null || (is_array($instance_id) && count($instance_id) === 0)) {
             throw new \InvalidArgumentException(
@@ -653,12 +663,6 @@ class HarmonizedSystemCodesApi
         if ($connection_id === null || (is_array($connection_id) && count($connection_id) === 0)) {
             throw new \InvalidArgumentException(
                 'Missing the required parameter $connection_id when calling isClassified'
-            );
-        }
-        // verify the required parameter 'request' is set
-        if ($request === null || (is_array($request) && count($request) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $request when calling isClassified'
             );
         }
 
@@ -672,10 +676,6 @@ class HarmonizedSystemCodesApi
         // query params
         if ($test_mode !== null) {
             $queryParams['testMode'] = ObjectSerializer::toQueryValue($test_mode, null);
-        }
-        // query params
-        if ($request !== null) {
-            $queryParams['request'] = ObjectSerializer::toQueryValue($request, null);
         }
 
         // path params
@@ -697,6 +697,9 @@ class HarmonizedSystemCodesApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -705,7 +708,7 @@ class HarmonizedSystemCodesApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['*/*'],
-                []
+                ['application/json']
             );
         }
 
@@ -738,6 +741,10 @@ class HarmonizedSystemCodesApi
             }
         }
 
+            // // this endpoint requires Bearer token
+            if ($this->config->getAccessToken() !== null) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+            }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -752,7 +759,7 @@ class HarmonizedSystemCodesApi
 
         $query = \GuzzleHttp\Psr7\Query::build($queryParams);
         return new Request(
-            'GET',
+            'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

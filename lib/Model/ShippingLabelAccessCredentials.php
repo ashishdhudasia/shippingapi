@@ -60,13 +60,12 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
         'password' => 'string',
         'account_number' => 'string',
         'access_key' => 'string',
-        'provider_access_token_expires_at' => '\DateTime',
+        'email' => 'string',
+        'store_url' => 'string',
         'api_key' => 'string',
         'api_secret' => 'string',
         'webhook_url' => 'string',
-        'hs_provider' => 'string',
-        'ext_int_linnworks' => '\Swagger\Client\Model\ExtIntLinnworks',
-        'unique_identifier' => 'string'
+        'hs_provider' => 'string'
     ];
 
     /**
@@ -79,13 +78,12 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
         'password' => null,
         'account_number' => null,
         'access_key' => null,
-        'provider_access_token_expires_at' => 'date-time',
+        'email' => null,
+        'store_url' => null,
         'api_key' => null,
         'api_secret' => null,
         'webhook_url' => null,
-        'hs_provider' => null,
-        'ext_int_linnworks' => null,
-        'unique_identifier' => null
+        'hs_provider' => null
     ];
 
     /**
@@ -119,13 +117,12 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
         'password' => 'password',
         'account_number' => 'accountNumber',
         'access_key' => 'accessKey',
-        'provider_access_token_expires_at' => 'providerAccessTokenExpiresAt',
+        'email' => 'email',
+        'store_url' => 'storeUrl',
         'api_key' => 'apiKey',
         'api_secret' => 'apiSecret',
         'webhook_url' => 'webhookUrl',
-        'hs_provider' => 'hsProvider',
-        'ext_int_linnworks' => 'extIntLinnworks',
-        'unique_identifier' => 'uniqueIdentifier'
+        'hs_provider' => 'hsProvider'
     ];
 
     /**
@@ -138,13 +135,12 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
         'password' => 'setPassword',
         'account_number' => 'setAccountNumber',
         'access_key' => 'setAccessKey',
-        'provider_access_token_expires_at' => 'setProviderAccessTokenExpiresAt',
+        'email' => 'setEmail',
+        'store_url' => 'setStoreUrl',
         'api_key' => 'setApiKey',
         'api_secret' => 'setApiSecret',
         'webhook_url' => 'setWebhookUrl',
-        'hs_provider' => 'setHsProvider',
-        'ext_int_linnworks' => 'setExtIntLinnworks',
-        'unique_identifier' => 'setUniqueIdentifier'
+        'hs_provider' => 'setHsProvider'
     ];
 
     /**
@@ -157,13 +153,12 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
         'password' => 'getPassword',
         'account_number' => 'getAccountNumber',
         'access_key' => 'getAccessKey',
-        'provider_access_token_expires_at' => 'getProviderAccessTokenExpiresAt',
+        'email' => 'getEmail',
+        'store_url' => 'getStoreUrl',
         'api_key' => 'getApiKey',
         'api_secret' => 'getApiSecret',
         'webhook_url' => 'getWebhookUrl',
-        'hs_provider' => 'getHsProvider',
-        'ext_int_linnworks' => 'getExtIntLinnworks',
-        'unique_identifier' => 'getUniqueIdentifier'
+        'hs_provider' => 'getHsProvider'
     ];
 
     /**
@@ -218,8 +213,8 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
     public function getHsProviderAllowableValues()
     {
         return [
-            self::HS_PROVIDER_HURRICANE,
-            self::HS_PROVIDER_UPS,
+            self::HS_PROVIDER_HURRICANE
+            self::HS_PROVIDER_UPS
         ];
     }
 
@@ -242,13 +237,12 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
         $this->container['password'] = isset($data['password']) ? $data['password'] : null;
         $this->container['account_number'] = isset($data['account_number']) ? $data['account_number'] : null;
         $this->container['access_key'] = isset($data['access_key']) ? $data['access_key'] : null;
-        $this->container['provider_access_token_expires_at'] = isset($data['provider_access_token_expires_at']) ? $data['provider_access_token_expires_at'] : null;
+        $this->container['email'] = isset($data['email']) ? $data['email'] : null;
+        $this->container['store_url'] = isset($data['store_url']) ? $data['store_url'] : null;
         $this->container['api_key'] = isset($data['api_key']) ? $data['api_key'] : null;
         $this->container['api_secret'] = isset($data['api_secret']) ? $data['api_secret'] : null;
         $this->container['webhook_url'] = isset($data['webhook_url']) ? $data['webhook_url'] : null;
         $this->container['hs_provider'] = isset($data['hs_provider']) ? $data['hs_provider'] : null;
-        $this->container['ext_int_linnworks'] = isset($data['ext_int_linnworks']) ? $data['ext_int_linnworks'] : null;
-        $this->container['unique_identifier'] = isset($data['unique_identifier']) ? $data['unique_identifier'] : null;
     }
 
     /**
@@ -386,25 +380,49 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets provider_access_token_expires_at
+     * Gets email
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getProviderAccessTokenExpiresAt()
+    public function getEmail()
     {
-        return $this->container['provider_access_token_expires_at'];
+        return $this->container['email'];
     }
 
     /**
-     * Sets provider_access_token_expires_at
+     * Sets email
      *
-     * @param \DateTime $provider_access_token_expires_at provider_access_token_expires_at
+     * @param string $email email
      *
      * @return $this
      */
-    public function setProviderAccessTokenExpiresAt($provider_access_token_expires_at)
+    public function setEmail($email)
     {
-        $this->container['provider_access_token_expires_at'] = $provider_access_token_expires_at;
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets store_url
+     *
+     * @return string
+     */
+    public function getStoreUrl()
+    {
+        return $this->container['store_url'];
+    }
+
+    /**
+     * Sets store_url
+     *
+     * @param string $store_url store_url
+     *
+     * @return $this
+     */
+    public function setStoreUrl($store_url)
+    {
+        $this->container['store_url'] = $store_url;
 
         return $this;
     }
@@ -510,54 +528,6 @@ class ShippingLabelAccessCredentials implements ModelInterface, ArrayAccess
             );
         }
         $this->container['hs_provider'] = $hs_provider;
-
-        return $this;
-    }
-
-    /**
-     * Gets ext_int_linnworks
-     *
-     * @return \Swagger\Client\Model\ExtIntLinnworks
-     */
-    public function getExtIntLinnworks()
-    {
-        return $this->container['ext_int_linnworks'];
-    }
-
-    /**
-     * Sets ext_int_linnworks
-     *
-     * @param \Swagger\Client\Model\ExtIntLinnworks $ext_int_linnworks ext_int_linnworks
-     *
-     * @return $this
-     */
-    public function setExtIntLinnworks($ext_int_linnworks)
-    {
-        $this->container['ext_int_linnworks'] = $ext_int_linnworks;
-
-        return $this;
-    }
-
-    /**
-     * Gets unique_identifier
-     *
-     * @return string
-     */
-    public function getUniqueIdentifier()
-    {
-        return $this->container['unique_identifier'];
-    }
-
-    /**
-     * Sets unique_identifier
-     *
-     * @param string $unique_identifier unique_identifier
-     *
-     * @return $this
-     */
-    public function setUniqueIdentifier($unique_identifier)
-    {
-        $this->container['unique_identifier'] = $unique_identifier;
 
         return $this;
     }

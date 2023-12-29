@@ -19,11 +19,16 @@ Verifies credentials and create new connection
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\ShippingLabelAccessCredentials(); // \Swagger\Client\Model\ShippingLabelAccessCredentials | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -52,7 +57,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -72,11 +77,16 @@ Removes exising connection
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 $connection_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -103,7 +113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 
@@ -123,11 +133,16 @@ Verifies credentials and update the connection
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+    // Configure HTTP bearer authorization: bearer-jwt
+    $config = Swagger\Client\Configuration::getDefaultConfiguration()
+    ->setAccessToken('YOUR_ACCESS_TOKEN');
+
 
 $apiInstance = new Swagger\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\ShippingLabelUpdateCredentials(); // \Swagger\Client\Model\ShippingLabelUpdateCredentials | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -158,7 +173,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[bearer-jwt](../../README.md#bearer-jwt)
 
 ### HTTP request headers
 

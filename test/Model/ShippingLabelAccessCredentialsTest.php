@@ -106,9 +106,16 @@ class ShippingLabelAccessCredentialsTest extends TestCase
     }
 
     /**
-     * Test attribute "provider_access_token_expires_at"
+     * Test attribute "email"
      */
-    public function testPropertyProviderAccessTokenExpiresAt()
+    public function testPropertyEmail()
+    {
+    }
+
+    /**
+     * Test attribute "store_url"
+     */
+    public function testPropertyStoreUrl()
     {
     }
 
@@ -137,20 +144,6 @@ class ShippingLabelAccessCredentialsTest extends TestCase
      * Test attribute "hs_provider"
      */
     public function testPropertyHsProvider()
-    {
-    }
-
-    /**
-     * Test attribute "ext_int_linnworks"
-     */
-    public function testPropertyExtIntLinnworks()
-    {
-    }
-
-    /**
-     * Test attribute "unique_identifier"
-     */
-    public function testPropertyUniqueIdentifier()
     {
     }
 }

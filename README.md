@@ -56,10 +56,12 @@ Please follow the [installation procedure](#installation--usage) and then run th
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
+
 $apiInstance = new Swagger\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\ShippingLabelAccessCredentials(); // \Swagger\Client\Model\ShippingLabelAccessCredentials | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -72,10 +74,12 @@ try {
     echo 'Exception when calling AuthenticationApi->create: ', $e->getMessage(), PHP_EOL;
 }
 
+
 $apiInstance = new Swagger\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
 $connection_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -87,10 +91,12 @@ try {
     echo 'Exception when calling AuthenticationApi->remove: ', $e->getMessage(), PHP_EOL;
 }
 
+
 $apiInstance = new Swagger\Client\Api\AuthenticationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 $body = new \Swagger\Client\Model\ShippingLabelUpdateCredentials(); // \Swagger\Client\Model\ShippingLabelUpdateCredentials | 
 $instance_id = "38400000-8cf0-11bd-b23e-10b96e4ef00d"; // string | 
@@ -116,7 +122,7 @@ Class | Method | HTTP request | Description
 *AuthenticationApi* | [**remove**](docs/Api/AuthenticationApi.md#remove) | **DELETE** /instances/{instanceId}/connections/{connectionId}/shipping/auth/v2 | Removes a connection
 *AuthenticationApi* | [**update**](docs/Api/AuthenticationApi.md#update) | **PUT** /instances/{instanceId}/connections/{connectionId}/shipping/auth/v2 | Update the connection
 *HarmonizedSystemCodesApi* | [**getHsCodes**](docs/Api/HarmonizedSystemCodesApi.md#gethscodes) | **POST** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/hs | Get Hs codes for list of products
-*HarmonizedSystemCodesApi* | [**isClassified**](docs/Api/HarmonizedSystemCodesApi.md#isclassified) | **GET** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/hs/classificationstatus | Check products classification status
+*HarmonizedSystemCodesApi* | [**isClassified**](docs/Api/HarmonizedSystemCodesApi.md#isclassified) | **POST** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/hs/classificationstatus | Check products classification status
 *LinnworksApi* | [**addUser**](docs/Api/LinnworksApi.md#adduser) | **POST** /instances/{instanceId}/connections/shipping/api/v2/extint/linnworks/addUser | Add User
 *LinnworksApi* | [**callEmpty**](docs/Api/LinnworksApi.md#callempty) | **POST** /instances/{instanceId}/connections/shipping/api/v2/extint/linnworks/empty**/** | Empty handler
 *LinnworksApi* | [**cancelLabel**](docs/Api/LinnworksApi.md#cancellabel) | **POST** /instances/{instanceId}/connections/shipping/api/v2/extint/linnworks/label/cancel | Cancel label
@@ -134,6 +140,7 @@ Class | Method | HTTP request | Description
 *ShippingLabelApi* | [**getShippingLabel**](docs/Api/ShippingLabelApi.md#getshippinglabel) | **GET** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/label | Get Shipping Label
 *ShippingRateApi* | [**getShippingRate**](docs/Api/ShippingRateApi.md#getshippingrate) | **POST** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/rate | Get Shipping Rate
 *ShippingServicesApi* | [**getServices**](docs/Api/ShippingServicesApi.md#getservices) | **GET** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/services | Get Shipping Services
+*ShoplineApi* | [**getRates**](docs/Api/ShoplineApi.md#getrates) | **POST** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/extint/shopline/rates | Get Rates
 *TaxAndDutiesApi* | [**getQuotes**](docs/Api/TaxAndDutiesApi.md#getquotes) | **POST** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/tad/quotes | Get Taxes and Duties quotes
 *TaxAndDutiesApi* | [**submitParcel**](docs/Api/TaxAndDutiesApi.md#submitparcel) | **POST** /instances/{instanceId}/connections/{connectionId}/shipping/api/v2/tad/submitOrder | Submit parcel
 
@@ -151,12 +158,13 @@ Class | Method | HTTP request | Description
  - [ConsignorAddress](docs/Model/ConsignorAddress.md)
  - [CreateShippingLabelRequest](docs/Model/CreateShippingLabelRequest.md)
  - [CreateShippingLabelResponse](docs/Model/CreateShippingLabelResponse.md)
+ - [CustomsInfo](docs/Model/CustomsInfo.md)
+ - [CustomsItem](docs/Model/CustomsItem.md)
  - [DdpInfo](docs/Model/DdpInfo.md)
  - [EmptyObjectResponse](docs/Model/EmptyObjectResponse.md)
  - [ErrorField](docs/Model/ErrorField.md)
  - [ErrorResponse](docs/Model/ErrorResponse.md)
  - [Event](docs/Model/Event.md)
- - [ExtIntLinnworks](docs/Model/ExtIntLinnworks.md)
  - [ExtendedProperty](docs/Model/ExtendedProperty.md)
  - [ExtendedPropertyItem](docs/Model/ExtendedPropertyItem.md)
  - [GetLocationsResponse](docs/Model/GetLocationsResponse.md)
@@ -211,6 +219,11 @@ Class | Method | HTTP request | Description
  - [ShippingLabelAccessCredentials](docs/Model/ShippingLabelAccessCredentials.md)
  - [ShippingLabelUpdateCredentials](docs/Model/ShippingLabelUpdateCredentials.md)
  - [ShippingPackage](docs/Model/ShippingPackage.md)
+ - [ShoplineExtGetRatesRequest](docs/Model/ShoplineExtGetRatesRequest.md)
+ - [ShoplineExtGetRatesResponse](docs/Model/ShoplineExtGetRatesResponse.md)
+ - [ShoplineExtItem](docs/Model/ShoplineExtItem.md)
+ - [ShoplineExtLocation](docs/Model/ShoplineExtLocation.md)
+ - [ShoplineExtRateResponseData](docs/Model/ShoplineExtRateResponseData.md)
  - [SubmitParcelRequest](docs/Model/SubmitParcelRequest.md)
  - [SubmitParcelResponse](docs/Model/SubmitParcelResponse.md)
  - [TrackShipmentResponse](docs/Model/TrackShipmentResponse.md)
@@ -218,7 +231,10 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
- All endpoints do not require authorization.
+
+## bearer-jwt
+
+- **Type**: HTTP bearer authentication
 
 
 ## Author
